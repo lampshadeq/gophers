@@ -1,0 +1,74 @@
+{{template "header"}}
+<link rel="stylesheet" href="public/css/signup.css">
+{{template "header2"}}
+<form method="POST" action="/createuser">
+    <i class="fa fa-user fa-5x"></i>
+    <input id="email" name="email" type="email" placeholder="Enter your email">
+    <p class="field-err"></p>
+    <input id="userName" name="userName" placeholder="Enter a twitter name" autocomplete="off">
+    <p class="field-err" id="username-err"></p>
+    <input id="password" name="password" type="password" placeholder="Create your password">
+    <input id="password2" name="password2" type="password" placeholder="Retype your password">
+    <p class="field-err" id="password-err"></p>
+    <button id="btn-create-account">Create Account</button>
+</form>
+<script>
+    // Variables
+    var userName = document.querySelector("#userName");
+    var p1 = document.querySelector("#password");
+    var p2 = document.querySelector("#password2");
+    var btnSubmit = document.querySelector("#btn-create-account");
+    var nameErr = document.querySelector("#username-err");
+    var pErr = document.querySelector("#password-err");
+
+    // Check for uniqueness in username
+    userName.addEventListener("keyup", function(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', "/checkUserName");
+        xhr.send(userName.value);
+        
+        xhr.addEventListener("readystatechange", function(){
+            var itm = xhr.responseText;
+            
+            if (itm == "true") {
+                nameErr.textContent = "Username is taken, please select another";
+            }
+            else {
+                nameErr.textContent = "";
+            }
+        });
+    });
+
+    // When clicked, check the passwords
+    btnSubmit.addEventListener("click", function(e){
+        var valid = validatePasswords();
+        
+        if (!valid) {
+            e.preventDefault();
+            return;
+        }
+    });
+
+    // Ensure both passwords are the same
+    function validatePasswords() {
+        pErr.textContent = "";
+        
+        // Empty password
+        if (p1.value == "") {
+            pErr.textContent = "You must enter a password";
+            return false;
+        }
+        
+        // Compare the two
+        if (p1.value != p2.value) {
+            pErr.textContent = "The passwords did not match. Please re-enter passwords.";
+            p1.value = "";
+            p2.value = "";
+            return false;
+        }
+        
+        // All is good
+        return true;
+    };
+</script>
+{{template "footer"}}
