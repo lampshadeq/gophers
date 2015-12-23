@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ek+Mukta">
+
+  <title>T3 - Profile</title>
+</head>
+<body>
+<div id="container">
+  <header>
+    <a href="/main"><img src="../images/logo.png" /></a>
+  </header>
+  
+  <main>
+    <div id="col1">
+      <h1>Username:</h1>
+      <h1>Email:</h1>
+      <h1>Wins:</h1>
+      <h1>Ties:</h1>
+      <h1>Losses:</h1>
+      <h1>Total games played:</h1>
+    </div>
+    
+    <div id="col2">
+      <h1>{{ .Username }}</h1>
+      <h1>{{ .Email }}</h1>
+      <h1>{{ .Wins }}</h1>
+      <h1>{{ .Ties }}</h1>
+      <h1>{{ .Losses }}</h1>
+      <h1>{{ .Total }}</h1>
+    </div>
+  </main>
+  
+  <nav>
+    <ul>
+      <li><a href="/main">Main Page</a></li>
+      <li><a href="/game">Play Game</a></li>
+      <li><a href="/signout">Sign Out</a></li>
+    </ul>
+  </nav>
+  
+  <footer>
+    <img src="../images/ttt.png" />
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ek+Mukta">
+  
+  <script src="js/register.js"></script>
+
+  <title>T3 - Register</title>
+</head>
+<body>
+<div id="container">
+  <header>
+    <a href="/"><img src="../images/logo.png" /></a>
+  </header>
+  
+  <form action="/create" method="post" onreset="resetHandler()" onsubmit="return submitHandler()">
+  
+  <main>
+    <h1>Username:</h1>
+    <input id="username" name="username" type="text" onkeyup="checkUsername()" />
+    <img id="username_img" src="" />
+    <h1>Password:</h1>
+    <input id="firstpass" name="password" type="password" onkeyup="checkPassword()" />
+    <img id="firstpass_img" src="" />
+    <h1>Reenter Password:</h1>
+    <input id="secondpass" type="password" onkeyup="checkPassword()" />
+    <img id="secondpass_img" src="" />
+    <h1>Email:</h1>
+    <input id="email" name="email" type="email" onkeyup="checkEmail()" />
+    <img id="email_img" src="" />
+  </main>
+  
+  <nav>
+    <ul>
+      <li><input type="submit" value="Register" /></li>
+      <li><input type="reset" /></li>
+    </ul>
+  </nav>
+  
+  </form>
+  
+  <footer>
+    <img src="../images/ttt.png" />
+  </footer>
+</div>
+</body>
+</html>
