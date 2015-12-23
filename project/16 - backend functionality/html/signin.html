@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ek+Mukta">
+  
+  <script src="js/signin.js"></script>
+
+  <title>T3 - Sign In</title>
+</head>
+<body>
+<div id="container">
+  <header>
+    <a href="/"><img src="../images/logo.png" /></a>
+  </header>
+  
+  <form action="/validate" method="post" onsubmit="return submitHandler()">
+  
+  <main>
+    <h1>Username:</h1>
+    <input id="username" name="username" type="text" />
+    <h1>Password:</h1>
+    <input id="password" name="password" type="password" />
+    
+    {{ if . }}
+    <h2>Username and/or password is incorrect!</h2>
+    {{ end }}
+  </main>
+  
+  <nav>
+    <ul>
+      <li><input type="submit" value="Sign In" /></li>
+    </ul>
+  </nav>
+  
+  </form>
+  
+  <footer>
+    <img src="../images/ttt.png" />
+  </footer>
+</div>
+</body>
+</html>
